@@ -1,0 +1,427 @@
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 700px) {
+    html {
+        font-size: 75%;
+        /* 12px if the default is 16px */
+    }
+
+}
+
+.sell-property {
+    width: 100vw;
+    display: flex;
+   flex-direction: column;
+   height: 100vh; /* Full screen */
+}
+
+.property-header {
+    /* background: #8080803b; */
+    width: 100%;
+    height: 14vh;
+    border-bottom: 1px rgba(224, 210, 210, 0.126) solid;
+    position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.head-iconx img{
+    width: 60px;
+    height: 30px;
+}
+.head-imgZ{
+    margin: 10px;
+}
+
+.main-box {
+    width: 100vw;
+    min-width: 1000px;
+    flex: 1;
+  margin-top: 50px; /* equal to header height */
+  overflow-y: auto; /* makes only outlet scrollable */
+  /* padding: 1rem; */
+}
+
+.postBox {
+    width: 70%;
+    margin: auto;
+    margin-top: 80px;
+    
+}
+
+.post-ad-title {
+    font-size: large;
+    text-align: center;
+}
+
+.form-post {
+    width: 100%;
+    border: 1px black solid;
+}
+
+.form-top {
+    width: 100%;
+    height: 20vh;
+    border-bottom: 1px gray solid;
+}
+.cate-pro{
+    font-size: small;
+    color: gray;
+}
+.form-main {
+    width: 100%;
+
+
+}
+
+.form-main-child {
+    width: 100%;
+    /* border: 1px black solid; */
+    /* font-size: 1.5rem; */
+}
+
+.head-option {
+    font-size: large;
+}
+
+.form-properties {
+    margin-top: 60px;
+    padding-left: 30px;
+}
+
+/* .box-options >button:first-child{
+    margin-left: 10%;
+} */
+
+
+.box-options {
+    display: flex;
+    flex-wrap: wrap;
+    width: 68%;
+    /* justify-content: space-between; */
+
+}
+
+.box-options button {
+    width: fit-content;
+    height: 40px;
+    margin-bottom: 13px;
+    margin-left: 10px;
+    margin-right: 2%;
+
+}
+
+.box-bhk-option {
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+
+}
+
+.box-listed-options {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.box-listed-options button {
+    width: 15%;
+
+    height: 40px;
+
+
+}
+
+.box-bathroom-options {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-bhk-option button {
+    width: 15%;
+    margin: auto;
+    height: 40px;
+
+}
+
+.box-bathroom-options button {
+    width: 15%;
+    margin: auto;
+    height: 40px;
+}
+
+.box-listed-options{
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.box-listed-options button{
+    width: 26%;
+    width: fit-content;
+    height: 40px;
+
+}
+/* .box-furnishing-options{
+
+} */
+.box-furnishing-options {
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+
+
+}
+
+.box-furnishing-options button {
+    width: 26%;
+    /* height: 30px; */
+    width:fit-content;
+    height: 40px;
+}
+
+.box-properties-status-options {
+
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+
+}
+
+.box-properties-status-option button {
+    width: 26%;
+    width: fit-content;
+    height: 40px;
+
+}
+.postnowX{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.postnowX button{
+    background-color: #3498db;
+    color: white;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.box-inputX {
+    width: 65%;
+    height: 35px;
+
+}
+
+.box-parking-options {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.box-parking-options button {
+    width: 15%;
+    height: 30px;
+}
+
+.set-price {
+    height: 25vh;
+    /* border: 1px solid black; */
+}
+
+.set-price label {
+    color: gray;
+    font-size: 16px;
+}
+
+/* review */
+.loaction-user{
+    border: 1px 0px 1px 0px solid gray !important;
+}
+
+.Review {
+    border: 1px solid black;
+    height: 35vh;
+    padding-left: 5%;
+
+}
+
+.Review-box {
+    width: 60%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Review-img {
+    width: 30%;
+    border: 1px solid black;
+    height: 70%;
+
+}
+
+.Review-name {
+    width: 60%;
+    border: 1px solid black;
+    height: 70%;
+
+}
+
+.Review-Num {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+
+
+}
+
+.Review-Num p {
+    border: 1px solid black;
+
+}
+
+
+/* img */
+.imageBox {
+    width: 100%;
+    padding-left: 30px;
+
+
+}
+
+/* .imageBox-firstchild{
+
+} */
+
+.imageBox-secondchild {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    /* border: 1px solid black; */
+}
+
+.img-input {
+    width: 28%;
+
+}
+
+/* post */
+.PostX {
+    display: flex;
+    width: 100%;
+    border: 1px solid black;
+    height: 17vh;
+    padding-left: 5%;
+    align-items: center;
+
+}
+
+.PostX button {
+    height: 50%;
+    background-color: blue;
+    width: fit-content;
+    font-size: large;
+    font-weight: 500;
+    color: aliceblue;
+    border: none;
+}
+
+/* css */
+
+.my-overlay {
+    position: fixed;
+   
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px); /* blur background */
+
+}
+
+.modelx{
+        height: 300px;
+        width: 300px;
+        background: white;
+        padding: 20px 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        font-family: sans-serif;
+
+}
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ddd;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .success{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 80px;
+    margin-bottom: 30px;
+
+  }
+
+  .success-item1 , .success-item2 ,.success-item3{
+    width:40% ;
+    /* border: 1px solid black; */
+    text-align: center;
+  }
+  .success-item3{
+    display: flex;
+    flex-direction: column;
+  }
+  .succ-sell{
+    background-color: #3498db;
+    color: white;
+    /* border: 2px black solid; */
+    height: 50px;
+    margin-top: 30px;
+  }
+
+  .succ-pre{
+  
+    color: white;
+    border: 2px blue solid;
+    color: blue;
+    height: 50px;
+    margin-top: 20px;
+  }
+
+  .footerX{
+    margin-top: 30px;
+    width: 100%;
+    height: 40vh;
+    background-color: blue;
+  }
