@@ -2,20 +2,21 @@ html {
     font-size: 16px;
 }
 
-@media (max-width: 700px) {
-    html {
-        font-size: 75%;
-        /* 12px if the default is 16px */
-    }
 
-}
 
 .sell-property {
-    width: 100vw;
+    width: 100%;
     display: flex;
-   flex-direction: column;
-   height: 100vh; /* Full screen */
+    flex-direction: column;
+    height: 100dvh;
+    /* Full screen */
 }
+
+.main-box {
+    width: 100%;
+}
+
+
 
 .property-header {
     /* background: #8080803b; */
@@ -23,36 +24,45 @@ html {
     height: 14vh;
     border-bottom: 1px rgba(224, 210, 210, 0.126) solid;
     position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1001;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.head-iconx img{
+.head-iconx img {
     width: 60px;
     height: 30px;
 }
-.head-imgZ{
+
+.head-imgZ {
     margin: 10px;
 }
 
 .main-box {
-    width: 100vw;
+    width: 100%;
     min-width: 1000px;
     flex: 1;
-  margin-top: 50px; /* equal to header height */
-  overflow-y: auto; /* makes only outlet scrollable */
-  /* padding: 1rem; */
+    margin-top: 50px;
+    /* equal to header height */
+    overflow-y: auto;
+    /* makes only outlet scrollable */
+    /* padding: 1rem; */
 }
 
+@media (min-width: 1024px) {
+    .main-box {
+        min-width: 1000px;
+        /* only desktop */
+    }
+}
 .postBox {
     width: 70%;
     margin: auto;
     margin-top: 80px;
-    
+
 }
 
 .post-ad-title {
@@ -70,10 +80,12 @@ html {
     height: 20vh;
     border-bottom: 1px gray solid;
 }
-.cate-pro{
+
+.cate-pro {
     font-size: small;
     color: gray;
 }
+
 .form-main {
     width: 100%;
 
@@ -158,18 +170,20 @@ html {
     height: 40px;
 }
 
-.box-listed-options{
+.box-listed-options {
     width: 65%;
     display: flex;
     justify-content: space-between;
 
 }
-.box-listed-options button{
+
+.box-listed-options button {
     width: 26%;
     width: fit-content;
     height: 40px;
 
 }
+
 /* .box-furnishing-options{
 
 } */
@@ -184,7 +198,7 @@ html {
 .box-furnishing-options button {
     width: 26%;
     /* height: 30px; */
-    width:fit-content;
+    width: fit-content;
     height: 40px;
 }
 
@@ -202,15 +216,17 @@ html {
     height: 40px;
 
 }
-.postnowX{
+
+.postnowX {
     width: 100%;
     height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
-.postnowX button{
+
+.postnowX button {
     background-color: #3498db;
     color: white;
     border: none;
@@ -247,7 +263,7 @@ html {
 }
 
 /* review */
-.loaction-user{
+.loaction-user {
     border: 1px 0px 1px 0px solid gray !important;
 }
 
@@ -343,7 +359,7 @@ html {
 
 .my-overlay {
     position: fixed;
-   
+
     top: 0;
     right: 0;
     bottom: 0;
@@ -352,21 +368,23 @@ html {
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px); /* blur background */
+    backdrop-filter: blur(4px);
+    /* blur background */
 
 }
 
-.modelx{
-        height: 300px;
-        width: 300px;
-        background: white;
-        padding: 20px 40px;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        font-family: sans-serif;
+.modelx {
+    height: 300px;
+    width: 300px;
+    background: white;
+    padding: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: sans-serif;
 
 }
+
 .spinner {
     width: 40px;
     height: 40px;
@@ -375,15 +393,15 @@ html {
     border-radius: 50%;
     margin: 0 auto 10px;
     animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
+}
 
-  .success{
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.success {
     width: 100%;
     display: flex;
     align-items: center;
@@ -391,37 +409,41 @@ html {
     margin-top: 80px;
     margin-bottom: 30px;
 
-  }
+}
 
-  .success-item1 , .success-item2 ,.success-item3{
-    width:40% ;
+.success-item1,
+.success-item2,
+.success-item3 {
+    width: 40%;
     /* border: 1px solid black; */
     text-align: center;
-  }
-  .success-item3{
+}
+
+.success-item3 {
     display: flex;
     flex-direction: column;
-  }
-  .succ-sell{
+}
+
+.succ-sell {
     background-color: #3498db;
     color: white;
     /* border: 2px black solid; */
     height: 50px;
     margin-top: 30px;
-  }
+}
 
-  .succ-pre{
-  
+.succ-pre {
+
     color: white;
     border: 2px blue solid;
     color: blue;
     height: 50px;
     margin-top: 20px;
-  }
+}
 
-  .footerX{
+.footerX {
     margin-top: 30px;
     width: 100%;
     height: 40vh;
     background-color: blue;
-  }
+}
