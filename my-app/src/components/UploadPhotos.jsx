@@ -40,6 +40,7 @@ function UploadPhotos({handlePhoto}) {
               {img ? (
                 <img
                   src={img.preview}
+                  className="upload-imgY"
                   width="100px"
                   height="100px"
                   style={{ objectFit: "cover" }}
@@ -47,6 +48,7 @@ function UploadPhotos({handlePhoto}) {
                 />
               ) : (
                 <BiImageAdd
+                className="upl-img"
                   size={100}
                   color="gray"
                   style={{

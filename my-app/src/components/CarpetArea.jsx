@@ -5,7 +5,7 @@ function CarpetArea({onChangex,error,value}){
             <label className="head-option">Carpet Area (sqft)</label>
             <br />
             <input
-              className="box-inputX"
+              className="box-inputX com-inputZ"
               type="number"
               value={value}
               onChange={(e) => onChangex(e.target.value)}

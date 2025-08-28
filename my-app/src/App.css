@@ -43,7 +43,7 @@ html {
 
 .main-box {
     width: 100%;
-    min-width: 1000px;
+    /* min-width: 1000px; */
     flex: 1;
     margin-top: 50px;
     /* equal to header height */
@@ -196,7 +196,7 @@ html {
 }
 
 .box-furnishing-options button {
-    width: 26%;
+    width: 29%;
     /* height: 30px; */
     width: fit-content;
     height: 40px;
@@ -251,7 +251,11 @@ html {
     width: 15%;
     height: 30px;
 }
-
+.form-properties textarea{
+    border: 2px solid black;
+    width: 66%;
+    height: 110px;
+}
 .set-price {
     height: 25vh;
     /* border: 1px solid black; */
@@ -325,7 +329,7 @@ html {
     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
-    width: 60%;
+    width: 65%;
     /* border: 1px solid black; */
 }
 
@@ -334,6 +338,16 @@ html {
 
 }
 
+.img-input2{
+    /* width: 70px;
+    height: 70px; */
+    /* border: 1px solid black; */
+    /* margin-bottom: 9px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 /* post */
 .PostX {
     display: flex;
@@ -446,4 +460,104 @@ html {
     width: 100%;
     height: 40vh;
     background-color: blue;
+}
+
+
+/*  */
+
+@media (max-width: 524px) {
+    .postBox {
+        width: 90%;
+        margin-left: 4%;
+       
+    
+    }
+    .box-furnishing-options{
+        width: 96%;
+        
+    }
+    .box-furnishing-options button{
+        width: 29%;
+        /* height: 30px; */
+       
+        width: fit-content;
+        height: 60px;
+        padding: 4px !important;
+    }
+
+    .box-properties-status-options{
+        width: 96%;
+       
+    
+    }
+    
+    
+    .imageBox-secondchild{
+        width: 95%;
+        height: fit-content;
+
+    }
+    .set-price {
+        height: 11vh;
+    }
+    .set-price input{
+        /* height: 11vh; */
+        border: 2px solid black;
+        height: 50px;
+        width: 90%;
+    }
+    .form-properties textarea{
+        border: 2px solid black;
+        width: 90%;
+        height: 110px;
+    }
+    .com-inputZ{
+        border: 2px solid black;
+        height: 50px;
+        width: 90%;
+
+    }
+    .Review-box {
+        width: 96%;
+        /* height: 60%; */
+        
+    }
+    .Review-Num {
+        
+        width: 96%;
+     
+    
+    
+    }
+    .img-input{
+        margin-right: 20px;
+    }
+    .upl-img{
+        width: 70px;
+        height: 70px;
+    }
+    .upload-imgY{
+        width: 65px;
+        height: 65px;
+        
+    }
+    .img-input{
+        width: fit-content;
+    }
+    .img-input2{
+        width: 70px;
+        height: 70px;
+        border: 1px solid black;
+        margin-bottom: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    .footerX {
+       
+        height: 20vh;
+        
+    }
 }

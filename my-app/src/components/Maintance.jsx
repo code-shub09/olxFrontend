@@ -5,7 +5,7 @@ function Maintenance({onChangeX,value}){
             <label className="head-option">Maintenance (Monthly)</label>
             <br />
             <input
-              className="box-inputX"
+              className="box-inputX com-inputZ"
               type="number"
               value={value}
               onChange={(e) => onChangeX(e.target.value)}

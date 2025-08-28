@@ -6,6 +6,7 @@ function ProName({onChangeX,error,value}){
               <label className="head-option">Project Name*</label>
               <br />
               <input
+              className="com-inputZ"
                 type="text"
                 minLength={3}
                 value={value}

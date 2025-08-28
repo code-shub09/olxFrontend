@@ -6,7 +6,7 @@ function Builtup({ value, onChange, error }) {
           <label className="head-option">Super Builtup Area (sqft)*</label>
           <br />
           <input
-            className="box-inputX"
+            className="box-inputX com-inputZ"
             type="number"
             value={value}
             onChange={(e) => onChange(e.target.value)}
