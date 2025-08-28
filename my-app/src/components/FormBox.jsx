@@ -78,7 +78,7 @@ function FormBox() {
     try {
       setIsSubmitting(true);
       const response = await fetch(
-        "http://localhost:5000/api/v1/user/property/sell",
+        "https://olx-backend-3t8l.onrender.com/api/v1/user/property/sell",
         {
           method: "POST",
           body: payload,
