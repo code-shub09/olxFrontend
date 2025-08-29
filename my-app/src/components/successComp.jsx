@@ -8,6 +8,7 @@ function Success() {
         <div className="success-item1">
           <IoCheckmarkDoneCircleSharp
             size={80}
+            className="dis-img-0"
             color="blue"
           ></IoCheckmarkDoneCircleSharp>
           <h4>Congratulations!</h4>
@@ -15,7 +16,7 @@ function Success() {
         </div>
         <div className="success-item2">
           <div>
-            <img src={disc} alt="" />
+            <img src={disc} className="dis-img-1" alt="" />
             <h4>Reach more buyers and sell faster</h4>
             <h6>Upgrade your Ad to a top position</h6>
           </div>

@@ -521,6 +521,7 @@ html {
     }
     .set-price {
         height: 11vh;
+        margin-bottom: 50px;
     }
     .set-price input{
         /* height: 11vh; */
@@ -581,5 +582,22 @@ html {
        
         height: 20vh;
         
+    }
+    .success-item1, .success-item2, .success-item3{
+        width: 90%;
+    }
+    .box-options{
+        width: 90%;
+        
+    
+    }
+    .dis-img-0{
+        margin-top: 20px;
+        width: 170px ;
+
+    }
+    .dis-img-1{
+        width: 170px ;
+
     }
 }
