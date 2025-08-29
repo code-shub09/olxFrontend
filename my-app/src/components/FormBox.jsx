@@ -265,7 +265,7 @@ function FormBox() {
     
       <div className="postnowX">
         
-      <button type="submit" disabled={isSubmitting} >
+      <button type="submit" disabled={isSubmitting}  className="postNow-butt">
         {isSubmitting ? "Submitting..." : "POST NOW"}
       </button>
       </div>

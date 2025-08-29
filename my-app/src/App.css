@@ -260,7 +260,11 @@ html {
     height: 25vh;
     /* border: 1px solid black; */
 }
-
+.set-price input{
+    width: 65%;
+    border: 2px solid black;
+    height: 45px;
+}
 .set-price label {
     color: gray;
     font-size: 16px;
@@ -371,17 +375,18 @@ html {
 
 } 
 /* post */
-.PostX {
+.postnowX{
     display: flex;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid gray;
     height: 17vh;
     padding-left: 5%;
     align-items: center;
+    margin-top: 70px;
 
 }
 
-.PostX button {
+.postnowX button {
     height: 50%;
     background-color: blue;
     width: fit-content;
@@ -600,4 +605,20 @@ html {
         width: 170px ;
 
     }
+}
+
+
+
+.img-input2{
+
+    position: relative;
+
+}
+.delete-img{
+    position: absolute;
+    color: red;
+    font-size:x-large;
+
+    right: 0;
+    top: 0;
 }

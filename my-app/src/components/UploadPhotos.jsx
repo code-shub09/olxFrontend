@@ -2,15 +2,12 @@ import { useState } from "react";
 import { FaRegImage } from "react-icons/fa";
 import camera from "../assets/image.png";
 import { BiImageAdd } from "react-icons/bi";
+import { FaXmark } from "react-icons/fa6";
 
-
-function UploadPhotos({handlePhoto}) {
-
+function UploadPhotos({ handlePhoto }) {
   const [imageX, setImageX] = useState(Array(20).fill(null));
   const nextEmptyIndex = imageX.findIndex((img) => img === null);
   function handleImageChange(e, index) {
-    
-
     const file = e.target.files[0]; // only one file
     if (!file) return;
 
@@ -29,33 +26,63 @@ function UploadPhotos({handlePhoto}) {
     });
   }
 
+  // function delImg(e,index){
+  //   const updated = imageX.filter((fruit, i) => i !== index);
+
+  // }
+  function delImg(e, index) {
+    setImageX((prev) => {
+      // remove the image at `index`
+      const updated = prev.filter((_, i) => i !== index);
+
+      // make sure array length is always 20
+      while (updated.length < 20) {
+        updated.push(null);
+      }
+
+      handlePhoto(updated);
+      return updated;
+    });
+  }
+
   return (
     <div className="imageBox">
-       <h3>Upload up to 20 photos</h3>
+      <h3>Upload up to 20 photos</h3>
       <div className="imageBox-secondchild">
-       
         {imageX.map((img, index) => (
           <div className="img-input">
             <label className="img-input2">
               {img ? (
-                <img
-                  src={img.preview}
-                  className="upload-imgY"
-                  width="100px"
-                  height="100px"
-                  style={{ objectFit: "cover" }}
-                  alt="preview"
-                />
+                <>
+                  <FaXmark
+                    className="delete-img"
+                    onClick={(e) => {
+                      delImg(e, index);
+                    }}
+                  >
+                    {" "}
+                  </FaXmark>{" "}
+                  <img
+                    src={img.preview}
+                    className="upload-imgY"
+                    width="100px"
+                    height="100px"
+                    style={{ objectFit: "cover" }}
+                    alt="preview"
+                  />
+                </>
               ) : (
-                <BiImageAdd
-                className="upl-img"
-                  size={100}
-                  color="gray"
-                  style={{
-                    cursor: "pointer",
-                    color: index === nextEmptyIndex ? "blue" : "grey",
-                  }}
-                />
+                <>
+                  <BiImageAdd
+                    className="upl-img"
+                    size={100}
+                    color="gray"
+                    style={{
+                      cursor: "pointer",
+                      color: index === nextEmptyIndex ? "blue" : "grey",
+                    }}
+                  />
+                </>
               )}
 
               <input
