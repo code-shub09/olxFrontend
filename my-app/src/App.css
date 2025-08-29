@@ -272,13 +272,14 @@ html {
 }
 
 .Review {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 35vh;
     padding-left: 5%;
 
 }
 
 .Review-box {
+    margin-top: 20px;
     width: 60%;
     height: 60%;
     display: flex;
@@ -286,17 +287,38 @@ html {
 }
 
 .Review-img {
-    width: 30%;
-    border: 1px solid black;
+    width: 50%;
+    /* height: 80px; */
+    /* max-width: 80%; */
+    /* border: 1px solid black; */
     height: 70%;
+    /* border-radius: 50%; */
 
+}
+.Review-img2{
+    width: 80px;
+    height: 80px;
+    max-width: 80%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 50%; */
+    border-radius: 50%;
+
+}
+.Review-img img{
+    width: 50%;
 }
 
 .Review-name {
     width: 60%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 70%;
 
+}
+.div-num{
+    border: 2px solid black;
 }
 
 .Review-Num {
@@ -329,7 +351,7 @@ html {
     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
-    width: 65%;
+    width: 90%;
     /* border: 1px solid black; */
 }
 
@@ -339,15 +361,15 @@ html {
 }
 
 .img-input2{
-    /* width: 70px;
-    height: 70px; */
-    /* border: 1px solid black; */
-    /* margin-bottom: 9px; */
+    width: 110px;
+    height: 110px;
+    border: 1px solid black; 
+     margin-bottom: 9px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-}
+} 
 /* post */
 .PostX {
     display: flex;
