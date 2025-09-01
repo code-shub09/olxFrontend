@@ -388,14 +388,21 @@ html {
 
 .postnowX button {
     height: 50%;
-    background-color: blue;
+    background-color: grey;
     width: fit-content;
     font-size: large;
-    font-weight: 500;
+    font-weight: 400;
+    opacity: 30%;
     color: aliceblue;
+    cursor: not-allowed;
     border: none;
 }
 
+.postNow-butt.enabled{
+    background-color: blue !important;
+    font-weight: 500;
+    opacity: 100%;
+}
 /* css */
 
 .my-overlay {

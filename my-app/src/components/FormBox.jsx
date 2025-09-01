@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import UploadPhotos from "./UploadPhotos";
 import LocationForm from "./location";
 import ReviewDetails from "./UserDetails";
@@ -19,9 +19,12 @@ import ModelLoad from "./ModelLoad";
 import { useNavigate } from "react-router-dom";
 import { Wrapper } from "../store/ContextApi";
 
+import isFormValid from "../logics/FormDataValidation";
+
+
 function FormBox() {
   const navigate = useNavigate();
-  const {setisSucces,isSuccess}=useContext(Wrapper);
+  const { setisSucces, isSuccess } = useContext(Wrapper);
   // main form data
   const [formData, setFormData] = useState({
     type: "",
@@ -57,13 +60,11 @@ function FormBox() {
     const payload = new FormData();
     Object.keys(formData).forEach((key) => {
       if (key === "photos") {
-       
         formData.photos.forEach((p) => {
           if (p && p.file) {
             payload.append("photos", p.file); // ignore nulls
           }
         });
-        
       } else if (typeof formData[key] === "object") {
         payload.append(key, JSON.stringify(formData[key]));
       } else {
@@ -73,7 +74,6 @@ function FormBox() {
 
     console.log("📦 Payload ready:", [...payload.entries()]);
     setLoading(true); // show overlay when form submits
-
 
     try {
       setIsSubmitting(true);
@@ -89,10 +89,10 @@ function FormBox() {
 
       const data = await response.json();
       setisSucces(true);
-      console.log('dd',isSuccess)
+      console.log("dd", isSuccess);
       console.log("✅ Server response:", data);
       navigate("/congratulations");
-      
+
       setFormData({
         type: "",
         bhk: "",
@@ -113,10 +113,14 @@ function FormBox() {
     } catch (err) {
       console.error("❌ Fetch error:", err);
     } finally {
-       // hide overlay when done
-       setLoading(false)
+      // hide overlay when done
+      setLoading(false);
     }
   }
+  useEffect(() => {
+    const valid =isFormValid(formData);
+    console.log("Form valid?-----", valid);
+  }, [formData]); 
 
   // form submit handler
   const handleSubmit = (e) => {
@@ -132,7 +136,8 @@ function FormBox() {
     if (!formData.superBuiltup)
       newErrors.superBuiltup = "Super builtup area is required";
     if (!formData.projName) newErrors.projName = "Project name is required";
-    if (!formData.description) newErrors.description = "Description is required";
+    if (!formData.description)
+      newErrors.description = "Description is required";
 
     setErrors(newErrors);
 
@@ -143,136 +148,140 @@ function FormBox() {
 
   return (
     <>
-    
-   
-    {loading && (<ModelLoad></ModelLoad>)}
-    <form onSubmit={handleSubmit}>
-      <div className="form-top">
-        <div><h3>SELECTED CATEGORY</h3></div>
-        <div className="cate-pro">Properties / For Sale: Houses & Apartments</div>
-      </div>
-
-      <div className="form-main">
-        <div className="form-main-child">
-          {/* Type */}
-          <TypeComp
-            value={formData.type}
-            error={errors.type}
-            onChange={(val) => updateField("type", val)}
-          />
-
-          {/* BHK */}
-          <BHKxComp
-            value={formData.bhk}
-            error={errors.bhk}
-            onChange={(val) => updateField("bhk", val)}
-          />
-
-          {/* Bathrooms */}
-          <Bathroom
-            value={formData.bathrooms}
-            error={errors.bathrooms}
-            onChange={(val) => updateField("bathrooms", val)}
-          />
-
-          {/* Furnishing */}
-          <Furnishing
-            value={formData.furnishing}
-            error={errors.furnishing}
-            onChange={(val) => updateField("furnishing", val)}
-          />
-
-          {/* Status */}
-          <Status
-            value={formData.status}
-            error={errors.status}
-            onChange={(val) => updateField("status", val)}
-          />
-
-          {/* Listed By */}
-          <ListedBy
-            value={formData.listedBy}
-            error={errors.listedBy}
-            onChange={(val) => updateField("listedBy", val)}
-          />
-
-          {/* Super Builtup Area */}
-          <Builtup
-            value={formData.superBuiltup}
-            error={errors.superBuiltup}
-            onChange={(val) => updateField("superBuiltup", val)}
-          />
-
-          {/* Carpet Area */}
-          <CarpetArea
-            value={formData.carpetArea}
-            error={errors.carpetArea}
-            onChangex={(val) => updateField("carpetArea", val)}
-          />
-
-          {/* Maintenance */}
-          <Maintenance
-            value={formData.maintenance}
-            error={errors.maintenance}
-            onChangeX={(val) => updateField("maintenance", val)}
-          />
-
-          {/* Parking */}
-          <ParkingComp
-            value={formData.parking}
-            error={errors.parking}
-            onChange={(val) => updateField("parking", val)}
-          />
-
-          {/* Project Name */}
-          <ProName
-            value={formData.projName}
-            error={errors.projName}
-            onChangeX={(val) => updateField("projName", val)}
-          />
-
-          {/* Description */}
-          <Description
-            value={formData.description}
-            error={errors.description}
-            onChangeX={(val) => updateField("description", val)}
-          />
-
-          {/* Price */}
-          <PriceComp
-            value={formData.price}
-            error={errors.price}
-            onChangeX={(val) => updateField("price", val)}
-          />
+      {loading && <ModelLoad></ModelLoad>}
+      <form onSubmit={handleSubmit}>
+        <div className="form-top">
+          <div>
+            <h3>SELECTED CATEGORY</h3>
+          </div>
+          <div className="cate-pro">
+            Properties / For Sale: Houses & Apartments
+          </div>
         </div>
-      </div>
 
-      {/* Photos */}
-      <UploadPhotos
-        photos={formData.photos}
-        handlePhoto={(updatedPhotos) => updateField("photos", updatedPhotos)}
-      />
+        <div className="form-main">
+          <div className="form-main-child">
+            {/* Type */}
+            <TypeComp
+              value={formData.type}
+              error={errors.type}
+              onChange={(val) => updateField("type", val)}
+            />
 
-      {/* Location */}
-      <LocationForm
-        value={formData.location}
-        locationHandler={(locX) => updateField("location", locX)}
-      />
+            {/* BHK */}
+            <BHKxComp
+              value={formData.bhk}
+              error={errors.bhk}
+              onChange={(val) => updateField("bhk", val)}
+            />
 
-      {/* Review */}
-      <ReviewDetails data={formData} />
+            {/* Bathrooms */}
+            <Bathroom
+              value={formData.bathrooms}
+              error={errors.bathrooms}
+              onChange={(val) => updateField("bathrooms", val)}
+            />
 
-    
-      <div className="postnowX">
-        
-      <button type="submit" disabled={isSubmitting}  className="postNow-butt">
-        {isSubmitting ? "Submitting..." : "POST NOW"}
-      </button>
-      </div>
-    </form>
+            {/* Furnishing */}
+            <Furnishing
+              value={formData.furnishing}
+              error={errors.furnishing}
+              onChange={(val) => updateField("furnishing", val)}
+            />
+
+            {/* Status */}
+            <Status
+              value={formData.status}
+              error={errors.status}
+              onChange={(val) => updateField("status", val)}
+            />
+
+            {/* Listed By */}
+            <ListedBy
+              value={formData.listedBy}
+              error={errors.listedBy}
+              onChange={(val) => updateField("listedBy", val)}
+            />
+
+            {/* Super Builtup Area */}
+            <Builtup
+              value={formData.superBuiltup}
+              error={errors.superBuiltup}
+              onChange={(val) => updateField("superBuiltup", val)}
+            />
+
+            {/* Carpet Area */}
+            <CarpetArea
+              value={formData.carpetArea}
+              error={errors.carpetArea}
+              onChangex={(val) => updateField("carpetArea", val)}
+            />
+
+            {/* Maintenance */}
+            <Maintenance
+              value={formData.maintenance}
+              error={errors.maintenance}
+              onChangeX={(val) => updateField("maintenance", val)}
+            />
+
+            {/* Parking */}
+            <ParkingComp
+              value={formData.parking}
+              error={errors.parking}
+              onChange={(val) => updateField("parking", val)}
+            />
+
+            {/* Project Name */}
+            <ProName
+              value={formData.projName}
+              error={errors.projName}
+              onChangeX={(val) => updateField("projName", val)}
+            />
+
+            {/* Description */}
+            <Description
+              value={formData.description}
+              error={errors.description}
+              onChangeX={(val) => updateField("description", val)}
+            />
+
+            {/* Price */}
+            <PriceComp
+              value={formData.price}
+              error={errors.price}
+              onChangeX={(val) => updateField("price", val)}
+            />
+          </div>
+        </div>
+
+        {/* Photos */}
+        <UploadPhotos
+          photos={formData.photos}
+          handlePhoto={(updatedPhotos) => updateField("photos", updatedPhotos)}
+        />
+
+        {/* Location */}
+        <LocationForm
+          value={formData.location}
+          locationHandler={(locX) => updateField("location", locX)}
+        />
+
+        {/* Review */}
+        <ReviewDetails data={formData} />
+
+        <div className="postnowX">
+          <button
+            type="submit"
+            disabled={ !isFormValid(formData)}
+           
+            className={`postNow-butt ${isFormValid(formData) ? "enabled" : ""}`}
+          >
+           POST NOW
+          </button>
+        </div>
+      </form>
     </>
   );
 }
 
 export default FormBox;
-
